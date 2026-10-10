@@ -1,0 +1,130 @@
+site_name: Quartermaster Docs
+site_description: Documentation for Quartermaster, a native iPhone, iPad and Mac app for running your homelab.
+site_url: https://docs.qmstack.com/
+repo_url: https://github.com/lewlew-glitch/qm_companion
+repo_name: QM Companion
+copyright: Quartermaster · Built in the UK · No accounts, no tracking
+
+theme:
+  name: material
+  language: en
+  logo: assets/logo.png
+  favicon: assets/logo.png
+  palette:
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+  font:
+    text: Inter
+    code: JetBrains Mono
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer
+    - navigation.instant
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tabs.link
+    - toc.follow
+  icon:
+    repo: fontawesome/brands/github
+
+extra_css:
+  - stylesheets/extra.css
+
+extra:
+  social:
+    - icon: fontawesome/brands/apple
+      link: https://apps.apple.com/gb/app/quartermaster-homelab-stack/id6779994284
+      name: App Store
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/ecFz4WsVVB
+      name: Discord
+    - icon: fontawesome/brands/github
+      link: https://github.com/lewlew-glitch/qm_companion
+      name: QM Companion on GitHub
+    - icon: material/web
+      link: https://www.qmstack.com/
+      name: qmstack.com
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - def_list
+  - footnotes
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+plugins:
+  - search
+
+nav:
+  - Home: index.md
+  - Getting started:
+      - getting-started/index.md
+      - Requirements: getting-started/requirements.md
+      - Install the app: getting-started/install.md
+      - Add your first service: getting-started/first-service.md
+      - Home and away: getting-started/home-and-away.md
+      - Free and Pro: getting-started/free-and-pro.md
+  - Worlds:
+      - worlds/index.md
+      - Entertainment: worlds/entertainment.md
+      - Command Centre: worlds/command-centre.md
+      - QM Reader: worlds/qm-reader.md
+      - The Doctor: worlds/doctor.md
+      - Alerts: worlds/alerts.md
+  - QM Companion:
+      - companion/index.md
+      - Install: companion/install.md
+      - Docker access profiles: companion/docker-access.md
+      - Pair a device: companion/pairing.md
+      - Stack handover: companion/stack-handover.md
+      - Security: companion/security.md
+      - Upgrading: companion/upgrading.md
+  - Services:
+      - services/index.md
+      - Entertainment services: services/entertainment.md
+      - Command Centre services: services/command-centre.md
+      - Reader services: services/reader.md
+  - Platforms:
+      - platforms/index.md
+      - iPhone and iPad: platforms/iphone-ipad.md
+      - Mac: platforms/mac.md
+      - Apple TV (beta): platforms/apple-tv.md
+  - Reference:
+      - Privacy and security: reference/privacy.md
+      - Sync and backups: reference/sync-backups.md
+      - Troubleshooting: reference/troubleshooting.md
+      - Error codes: reference/error-codes.md
+      - FAQ: reference/faq.md
+      - What's new: reference/changelog.md
+      - Get help: reference/support.md
