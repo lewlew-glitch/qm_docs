@@ -244,7 +244,7 @@ Answers to the questions we get most on [Discord](https://discord.gg/ecFz4WsVVB)
 ??? question "What do I get free, and what needs Pro?"
     **Free:** one service, one profile and the full Demo mode.
 
-    **Pro:** unlimited services and profiles, the Discover deck, Up Next, the combined calendar, the Stuck Download Doctor, full stats, encrypted backups and custom icons.
+    **Pro:** unlimited services and profiles, the Discover deck, Coming Soon on Home and the combined calendar, the Stuck Download Doctor, full stats, encrypted backups and custom icons.
 
     See [Free and Pro](../getting-started/free-and-pro.md).
 

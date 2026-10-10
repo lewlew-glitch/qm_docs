@@ -2,28 +2,30 @@
 
 | | Free | Pro |
 |---|:---:|:---:|
-| Services | **One**, fully featured | Unlimited |
+| Services | **One**, its own screens in full | Unlimited |
 | Profiles | One | Unlimited |
 | Demo mode | :material-check: | :material-check: |
-| QM Companion | :material-check: (always free) | :material-check: |
+| QM Companion stack import | :material-check: (services past the first stay locked) | :material-check: |
 | Your own push alerts (ntfy, Pushover, Discord, Telegram) | :material-check: | :material-check: |
 | Foreground "Imports & failures" alerts | :material-check: | :material-check: |
 | Join a family and friends share | :material-check: | :material-check: |
-| Relay push notifications (work with the app closed) | | :material-check: |
-| Daily release digest | | :material-check: |
-| Discover deck | | :material-check: |
-| Up Next | | :material-check: |
-| Combined calendar | | :material-check: |
-| Stuck Download Doctor | | :material-check: |
-| Full stats | | :material-check: |
-| Encrypted backups | | :material-check: |
-| Custom icons | | :material-check: |
-| Set up family and friends sharing | | :material-check: |
-| Stack handover from Companion | | :material-check: |
-| Match a stuck import from "Needs you" | | :material-check: |
-| Server-side custom alerts (Companion 0.1.7+) | | :material-check: |
-| Uptime Kuma down and recovery pushes | | :material-check: |
-| Apple TV app | | :material-check: |
+| Up Next on Home (Continue Watching and Next Up) | :material-check: | :material-check: |
+| Subscribe to a Sonarr or Radarr calendar in the Calendar app | :material-check: | :material-check: |
+| Command Centre layouts and worlds, the hot bar, QM Reader | :material-check: | :material-check: |
+| Basic stats | :material-check: | :material-check: |
+| Relay push with the app closed (including Now Playing and Uptime Kuma down and recovery) |  | :material-check: |
+| Daily release digest |  | :material-check: |
+| Discover deck, For You, Watch-a-thon, Forgotten and your taste profile |  | :material-check: |
+| Coming Soon on Home and the combined calendar | On a family device | :material-check: |
+| Stuck Download Doctor and Match from "Needs you" |  | :material-check: |
+| Full stats, Weekly Report and Year in Review |  | :material-check: |
+| Encrypted backups and iCloud Sync |  | :material-check: |
+| Live Companion link (containers, stacks, updates) |  | :material-check: |
+| Server-side custom alerts through Companion |  | :material-check: |
+| Custom app icons | Brass only | All six |
+| Set up family and friends sharing |  | :material-check: |
+| Seerr routing rules |  | :material-check: |
+| Apple TV app (beta) |  | :material-check: |
 
 ## If you don't buy Pro
 
@@ -51,4 +53,4 @@ Prices are taken from the App Store listing and may differ in other regions. App
 
 ## Continued Support
 
-**Continued Support** ($9.99 / £9.99) is an optional purchase for anyone who wants to help cover the cost of developing Quartermaster. It doesn't unlock any extra features. Pro already includes everything.
+**Continued Support** ($9.99 / £9.99 a month) is an optional subscription for anyone who wants to help cover the cost of developing Quartermaster. It unlocks the same Pro as every other plan, with no extra features.
