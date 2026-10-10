@@ -8,17 +8,14 @@ Tabs: **Overview · Activity · Stack · Downloads · Stats**
 
 Overview comes in six layouts. On first run, a **setup wizard** previews each one using your own stack, so you can see it before you choose.
 
-| Layout | Best for |
+| Layout | What you get |
 |---|---|
-| **Triage** | Showing only what needs attention. Everything healthy folds away. |
-| **Pipeline** | Following requests → downloads → new arrivals → streams |
-| **Machines** | Host-first view: CPU, memory, temperature, drives |
-| **Glance** | A compact grid of every service's status |
-| **The mix** | A mix of all of the above |
-| **Classic** | The pre-1.3 layout |
-
-!!! todo
-    Check these one-line descriptions for Pipeline, Glance, The mix and Classic.
+| **Triage** | Only what needs you. Everything healthy folds away. |
+| **Pipeline** | A request followed all the way to the sofa: requests → downloads → new arrivals → streams |
+| **Machines** | Your stack grouped by the box it runs on, with CPU, memory, temperature and drives |
+| **Glance** | Every service on one screen, as icons |
+| **The mix** | What needs you, your pipeline and your machines in one scroll |
+| **Classic** | Every service as a tile, as before 1.3. It stays until you pick another layout |
 
 ## Needs you
 

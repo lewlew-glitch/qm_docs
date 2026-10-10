@@ -18,5 +18,4 @@ Vercel builds it from `vercel.json`: a fresh virtualenv, `mkdocs build --strict`
 `site/` folder served as static files. Push to `main` and Vercel publishes it; a push to any
 other branch gets a preview URL first.
 
-Placeholders that need the developer's input are marked with `!!! todo` admonitions.
-Search the repo for `todo` to find them.
+To change a page, edit its file under `docs/` on a branch and open a pull request.

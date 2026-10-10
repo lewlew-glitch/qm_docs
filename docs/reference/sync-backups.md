@@ -12,5 +12,16 @@ iCloud Sync keeps your services and settings the same across your devices, and i
 
 Backups include your service connections. Your **TMDB key** is included, encrypted, in both backups and iCloud Sync.
 
-!!! todo
-    Document how to export and restore a backup.
+### Export a backup *(Pro)*
+
+1. Go to **Settings → Backup & sync → Export backup**.
+2. Choose a passphrase. It's the only way back into the file, and Quartermaster keeps no copy of it.
+3. Tap **Encrypt & share** and save the `.qmbackup` file somewhere safe, such as iCloud Drive.
+
+### Restore a backup
+
+- **On a fresh install:** choose **Restore from a backup** on the welcome screen, pick the file and enter its passphrase.
+- **On a device that's already set up:** go to **Settings → Backup & sync → Import backup**, pick the file, unlock it, then choose to **merge** it with what's there or **replace** everything.
+
+!!! note "Not included in a backup"
+    The persistent QM Companion link, certificate pins and SSH host trust. Pair Companion again on the new device. Pins and host keys are learned again as you connect.

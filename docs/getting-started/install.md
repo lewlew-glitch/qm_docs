@@ -18,5 +18,4 @@ Quartermaster has no account to create and no sign-in. When it opens, you can:
 
 You can open the app where you last left off, or always in a chosen world.
 
-!!! todo
-    Add the Settings path for this option.
+Go to **Settings → General → Open the app on** and choose **Where you left off** or a world. It takes effect the next time the app starts. Coming back from the background always keeps you where you were.

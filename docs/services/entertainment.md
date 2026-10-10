@@ -17,7 +17,7 @@
 | **Lidarr** | Finds and manages music |
 | **Bazarr** | Downloads subtitles for films and TV |
 | **Maintainerr** | Rule-based library clean-up. *Keep forever* removes a title from Leaving Soon immediately |
-| **Shelfarr** | Book management |
+| **Shelfarr** | Book and audiobook requests |
 
 ## Download clients
 
@@ -52,7 +52,7 @@
 | Service | What it does |
 |---|---|
 | **Tautulli** | Plex stats and history |
-| **Tracearr** | Stream monitoring |
+| **Tracearr** | Live streams, history and insights, and ending a stream |
 | **Jellystat** | Jellyfin stats and history |
 | **Streamystats** | Jellyfin stats |
 
@@ -63,7 +63,7 @@
 | **Komga** | Comics and manga server |
 | **Kavita** | Books, comics and manga server |
 | **AudioBookshelf** | Audiobook and podcast server |
-| **Shelfmark** | Book search and downloads |
+| **Shelfmark** | Request, approve and track books |
 | **BookOrbit** | Books and audiobooks. Also feeds [QM Reader](../worlds/qm-reader.md) |
 | **Grimmory** | Book library. Also feeds [QM Reader](../worlds/qm-reader.md). *New in 1.3* |
 
@@ -79,5 +79,3 @@
 |---|---|
 | **Dispatcharr** | IPTV and live TV streams |
 
-!!! todo
-    Check the short descriptions for Shelfarr, DroppedNeedle, ReadMeABook, Tracearr and Shelfmark.

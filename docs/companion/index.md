@@ -10,7 +10,7 @@ QM Companion is a **free, open-source** (MIT) app you run on your own server alo
 - **Web dashboard:** containers, stacks, images, volumes, networks, events, logs and resource use.
 - **Control:** start, stop or update containers from **Companion's own dashboard**. This only works once you've given Companion Docker write access. See [Docker access profiles](docker-access.md).
 - **Setup transfer:** send your service list and addresses to the app with a QR code or file. See [Pair a device](pairing.md).
-- **Stack handover** *(Pro)*: a fresh install imports your service list with a one-time code. See [Stack handover](stack-handover.md).
+- **Stack handover:** a fresh install takes your whole service list in one go. See [Stack handover](stack-handover.md).
 - **Server-side alerts** *(Pro, 0.1.7+)*. See [Alerts](../worlds/alerts.md).
 
 ## How it connects

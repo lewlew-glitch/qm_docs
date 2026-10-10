@@ -17,8 +17,8 @@ When you test a service, Quartermaster checks four stages in order and **stops a
 |---|---|---|
 | `QM-NET-01` | Unreachable | Check the address, port and network. See [Reachable](faq.md#connecting-and-networking) |
 | `QM-NET-02` | Timed out | The host is slow or blocked. Check firewalls and VPNs |
-| `QM-TLS-01` | Self-signed certificate | Check the fingerprint and tap **Trust**, or use `http://` |
-| `QM-TLS-02` | Self-signed certificate | Check the fingerprint and tap **Trust**, or use `http://` |
+| `QM-TLS-01` | Self-signed certificate that can't be trusted here | Quartermaster can't offer a trust prompt for this one. Use `http://`, or put a trusted certificate in front with a reverse proxy or Tailscale. For Portainer, use `http://` on port `9000` |
+| `QM-TLS-02` | Self-signed certificate you can trust | Open the trust prompt, compare the fingerprint with your server's, and tap **Trust**. From then on only that exact certificate is accepted |
 | `QM-TLS-03` | Pinned certificate changed | Only trust it again if you expected the change, such as a renewed certificate or rebuilt container |
 | `QM-AUTH-01` | Key or login rejected | Copy the key again. Make sure it's the right kind (for example SABnzbd's API Key, not its NZB Key) |
 | `QM-HTTP-01` | Wrong URL or missing subpath | Add the URL Base, for example `/radarr` |
@@ -28,5 +28,3 @@ When you test a service, Quartermaster checks four stages in order and **stops a
 | `QM-URL-01` | Invalid URL | Check the format, for example `http://192.168.1.20:7878` |
 | `QM-OPEN-01` | A deep link failed to open | Check that the target app is installed |
 
-!!! todo
-    Add the difference between `QM-TLS-01` and `QM-TLS-02`.
