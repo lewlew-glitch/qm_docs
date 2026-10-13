@@ -1,5 +1,7 @@
 # Add your first service
 
+To add a service, tap the **profile icon** at the top right of Home, then **Profiles → Edit Stack → +**. For a full walkthrough, see the [Your first setup](../tutorials/first-setup.md) tutorial.
+
 Each connection needs three things:
 
 1. **The service type**, such as Radarr, Jellyfin or Pi-hole.
@@ -30,6 +32,7 @@ The steps below are for common services. Menu names can change between versions,
 | Tautulli | **Settings → Web Interface → API** |
 | Home Assistant | **Profile → Security → Long-lived access tokens** |
 | Grafana | **Administration → Service accounts** (a *Viewer* token is enough) |
+| SSH | No key needed. Enter the host, port (usually `22`) and username, then sign in with a **password**, an **ed25519 key** or **Tailscale** |
 
 If a service still won't connect, see the [FAQ](../reference/faq.md#a-service-wont-connect).
 

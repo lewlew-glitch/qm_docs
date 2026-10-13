@@ -16,11 +16,14 @@ Report bugs in **#tvos-bug-reports**, ideally with a photo or video.
 
 ## Pairing
 
-1. The Apple TV shows a **six-digit code** and a **QR code**.
-2. On the iPhone, open **Settings → Apple TV**, then enter the code or scan the QR code.
-3. The sync passphrase goes to the Apple TV through **your iCloud**, never through Quartermaster's servers.
+1. On the Apple TV, open Quartermaster and choose **Set Up from iPhone**. It shows a **six-digit code** and a **QR code**. The code changes every ten minutes.
+2. On the iPhone, go to **Settings → Apple TV** (also in **Backup & sync**).
+3. Enter the code, or tap **Scan QR code**, then tap **Find Apple TV**.
+4. The sync passphrase goes to the Apple TV through **your iCloud**, never through Quartermaster's servers.
 
-If you don't have an iPhone set up, choose **Try the Demo** on the welcome screen.
+An Apple TV you've already set up shows on this screen once it opens Quartermaster. That can take a minute to come through iCloud.
+
+If you don't have an iPhone set up, choose **Try the Demo** on the Apple TV's welcome screen.
 
 ## Oracle player
 

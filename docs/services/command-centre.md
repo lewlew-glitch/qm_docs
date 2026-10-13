@@ -73,5 +73,5 @@
 
 | Service | What it does |
 |---|---|
-| **SSH** | Terminal access to your machines |
+| **SSH** | Interactive shell plus one-tap commands: free space, memory, uptime and load, busiest processes, failed services, SMART reports, who's signed in, update checks, restarting a service and rebooting. Sign in with a password, a key or Tailscale |
 | **qui** | qBittorrent web interface |

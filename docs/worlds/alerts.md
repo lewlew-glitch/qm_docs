@@ -1,52 +1,117 @@
 # Alerts
 
-## Two ways to get alerts
+Quartermaster runs no servers by default, so your stack, keys and data stay on your devices. Find every option in **Settings → Notifications**:
 
-| | Instant alerts, your way | Push notifications |
+| Option | Cost | How alerts reach you |
 |---|---|---|
-| **Cost** | Free | Pro |
-| **How it works** | Quartermaster sets up a connection in Sonarr, Radarr or Seerr that sends straight to **your own** push service | Alerts go through Quartermaster's relay to Apple push |
-| **Destinations** | ntfy (one tap, can be self-hosted), Pushover, Discord, Telegram | Your iPhone or iPad |
-| **Works with the app closed** | Yes, from your push service | Yes |
+| [**Push notifications**](#push-notifications) | Pro | Apple notifications through Quartermaster's relay, even when the app is closed |
+| [**Instant alerts, your way**](#instant-alerts-your-way) | Free | Your services push straight to your own ntfy, Pushover, Discord or Telegram |
+| [**Local alerts**](#local-alerts) | Free, except the daily digest (Pro) | On this device: foreground alerts, the daily digest and server thresholds |
+| [**From your Companion**](#from-your-companion) | Pro | Your own server sends the alerts, with the wording and rules you choose |
 
-Set up your own push in **Local alerts → Instant alerts, your way**. Pushover, Discord and Telegram need a short manual step in each service's **Connect** settings.
+## Push notifications
 
-### The relay
+Traditional Apple notifications delivered through **Quartermaster's relay**, so they reach your phone even when the app is closed.
 
-The relay is a small Cloudflare Worker that turns service events into Apple push notifications. It only stores your device's **push token**, never your API keys, URLs or library data. It's **off by default** and fully opt-in.
+The relay is **off until you turn it on**. It forwards each alert and keeps **only your device's push token**, never your keys, URLs or library.
 
-### What can alert you
+Turn on **Push notifications**, then choose which services can reach you:
 
-- **Sonarr and Radarr:** imports, failures and health warnings
-- **Seerr:** new, approved and available requests
+- **Sonarr** and **Radarr:** imports, failures and health warnings. If [QM Companion alerts](#from-your-companion) are on, Companion sends these instead, and you manage them there.
+- **Seerr:** a nudge when someone makes a request, or one is approved and ready to watch. Set up for you.
+- **Now playing alerts:** a notification each time someone starts watching. On a busy server these can add up. See [Now Playing alerts](../tutorials/now-playing.md).
 
-## Other alerts
+## Instant alerts, your way
 
-| Alert | Cost | What it does |
-|---|---|---|
-| **Daily release digest** | Pro | A morning summary of today's releases from Radarr and Sonarr, scheduled as a real iOS notification |
-| **Imports & failures** | Free | A local notification when a download finishes or fails while the app is open on screen. Nothing leaves your device |
-| **Server-side alerts** | Pro | Needs QM Companion **0.1.7 or later**. Your server sends alerts using your own wording and rules |
-| **Local background checks** | Free | Run when iOS allows, so they aren't instant |
+Your services push **straight to your own channel**, never through Quartermaster's relay. This is the most reliable free option.
 
-## Now Playing alerts
+For **ntfy**, Quartermaster can set it up for you. Follow [Free instant alerts with ntfy](../tutorials/ntfy-alerts.md).
 
-Turn on **Push notifications** (relay), then:
+For the others, add the connection in each service yourself:
 
-| Server | Setup |
+=== "ntfy (manual)"
+
+    1. Install the **ntfy** app, then subscribe to a topic on your server (`ntfy.sh`, or your own such as `https://ntfy.example.com`).
+    2. **Sonarr / Radarr → Settings → Connect:** add a **Webhook** (or Custom Script) pointed at your topic URL, such as `https://ntfy.sh/<topic>`, firing on Grab, Download and Import.
+    3. **SABnzbd → Config → Notifications:** enable a provider (Apprise works well) pointed at the same topic.
+    4. Protected topic? Add your ntfy access token as an `Authorization` header.
+
+=== "Pushover"
+
+    A simple paid push service. Hosted, but reliable and quick to set up.
+
+    1. **Sonarr / Radarr → Settings → Connect → Pushover** (built in): enter your user key and an API token.
+    2. **SABnzbd → Config → Notifications → Pushover.**
+
+=== "Discord"
+
+    Pushes to a Discord channel you control, through a webhook.
+
+    1. **In Discord:** Channel settings → Integrations → Webhooks. Create one and copy its URL.
+    2. **Sonarr / Radarr → Settings → Connect → Discord** (built in): paste the webhook URL.
+    3. **SABnzbd:** through Apprise (`discord://`) or a notification script.
+
+=== "Telegram"
+
+    A free bot pushes to your Telegram chat.
+
+    1. Create a bot with **@BotFather** to get a token, and find your chat ID.
+    2. **Sonarr / Radarr → Settings → Connect → Telegram** (built in): enter the bot token and chat ID.
+    3. **SABnzbd:** through Apprise (`tgram://`) or a notification script.
+
+**Gotify** and **Apprise** are coming soon.
+
+## Local alerts
+
+Alerts that run on your device, never through Quartermaster's relay.
+
+| Alert | What it does |
 |---|---|
-| **Plex** | Works through **Tautulli**, which is set up automatically |
-| **Jellyfin** | Needs the official **Webhook** plugin. Quartermaster can install it, and asks first because installing briefly interrupts anyone watching |
-| **Emby** | A one-time manual webhook. Tap the Emby row under Now Playing for the URL, then in Emby add a Webhook under **Dashboard → Notifications**, set the content type to `application/json`, tick **Playback** events and paste the URL |
-| **Tracearr** | Not supported, because Tracearr's API is read-only. Use Tautulli or connect Jellyfin or Emby directly |
+| **Imports & failures** | A local alert the moment a download finishes or fails, while the app is open |
+| **Daily release digest** *(Pro)* | Each morning, a summary of what's releasing or airing today. It lives under Local alerts but needs Pro |
+| **Server thresholds** | Storage, CPU, temperature and memory alerts. Needs **Glances** |
 
-## Service alerts
+!!! note "Background checks aren't guaranteed"
+    Background checks happen occasionally, when iOS allows. They're handy for slow things like storage filling up, but not guaranteed. For reliable alerts, use [Instant alerts, your way](#instant-alerts-your-way).
 
-**PeaNUT (UPS):** an opt-in alert when the UPS switches to battery, runs low, stops reporting or recovers.
+## From your Companion
 
-**Uptime Kuma** *(Pro)*: a webhook sends a push when a monitor goes down and another when it recovers.
+*Pro, with QM Companion 0.1.7 or later.* Your own server sends the alerts, with the wording and rules you choose. Open it from **Settings → Notifications → From your Companion**.
 
-**Pulsarr:** a notification for each new request, showing the instance and quality profile.
+### This iPhone
+
+- **Alerts are on** shows when the last alert was delivered.
+- **Send a test alert** checks the whole path from your Companion to this phone.
+- **Stop alerts on this iPhone.**
+
+### Your connections
+
+Switch alerts on for **Sonarr**, **Radarr** and **Seerr**. Tap Sonarr or Radarr to choose exactly which alerts it sends:
+
+| Alert | |
+|---|---|
+| **Imports** | When something is imported |
+| **Grabs** | When a release is grabbed |
+| **Needs attention** | When something needs you, such as a stuck import |
+| **Health issues** | When the app reports a health problem |
+| **Health restored** | When that problem clears |
+| **App updates** | When an update is available |
+
+Tap any alert to change its wording. Custom wording can include the full **release name**, as Sonarr and Radarr show it in History.
+
+Each service's page also shows the **address** Quartermaster wrote into that service for you, and when the last alert arrived. **New address** makes a new secret address and writes it into the service, which is useful if the old one leaked.
+
+### Other sources
+
+**Add a source** to send alerts from:
+
+- **Tracearr:** rule violations and server status
+- **Uptime Kuma:** monitors going down and coming back
+- **Anything else:** scripts, backups or any tool that can send a webhook
+
+### History
+
+**History** lists every alert your Companion sent or held back.
 
 ## Fixing notifications
 

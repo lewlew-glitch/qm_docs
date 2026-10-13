@@ -16,7 +16,7 @@ For service-specific problems, see the [FAQ](faq.md#a-service-wont-connect). For
     Open the [Doctor](../worlds/doctor.md) in Command Centre for a plain-English diagnosis and a one-tap fix.
 
 ??? question "Unraid refuses to start or stop a container or VM"
-       Quartermaster shows the reason and the permission you need to change on Unraid. Check the API key has the **CONNECT** and **ADMIN** roles under **Settings → Management Access → API Keys**. Unraid 7.3 or later is required.
+    Quartermaster shows the reason and the permission you need to change on Unraid. Check the API key has the **CONNECT** and **ADMIN** roles under **Settings → Management Access → API Keys**. Unraid 7.3 or later is required.
 
 ??? question "I can't start or stop containers in the app"
     That's intended. The app's container view is read-only. Control containers from QM Companion's dashboard, with a [Management profile](../companion/docker-access.md) installed and the active mode raised.

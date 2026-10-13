@@ -13,18 +13,40 @@ When you test a service, Quartermaster checks four stages in order and **stops a
 
 ## QM- codes
 
+### Reachability
+
 | Code | Meaning | What to do |
 |---|---|---|
-| `QM-NET-01` | Unreachable | Check the address, port and network. See [Reachable](faq.md#connecting-and-networking) |
+| `QM-NET-01` | Can't reach the host: DNS failed, the connection was refused, or the host is unreachable | Check the address, port and network. See [Reachable](faq.md#connecting-and-networking) |
 | `QM-NET-02` | Timed out | The host is slow or blocked. Check firewalls and VPNs |
-| `QM-TLS-01` | Self-signed certificate that can't be trusted here | Quartermaster can't offer a trust prompt for this one. Use `http://`, or put a trusted certificate in front with a reverse proxy or Tailscale. For Portainer, use `http://` on port `9000` |
-| `QM-TLS-02` | Self-signed certificate you can trust | Open the trust prompt, compare the fingerprint with your server's, and tap **Trust**. From then on only that exact certificate is accepted |
-| `QM-TLS-03` | Pinned certificate changed | Only trust it again if you expected the change, such as a renewed certificate or rebuilt container |
-| `QM-AUTH-01` | Key or login rejected | Copy the key again. Make sure it's the right kind (for example SABnzbd's API Key, not its NZB Key) |
-| `QM-HTTP-01` | Wrong URL or missing subpath | Add the URL Base, for example `/radarr` |
-| `QM-DATA-01` | The wrong page came back | A proxy or login page is answering. Point the address directly at the service |
-| `QM-EDGE-01` | Blocked by Cloudflare Access | Add an Access service token as `CF-Access-Client-Id` and `CF-Access-Client-Secret` headers under **Advanced** |
-| `QM-EDGE-02` | Cloudflare rate limiting | The app is backing off. Relax bot protection, or connect over Tailscale or your LAN |
-| `QM-URL-01` | Invalid URL | Check the format, for example `http://192.168.1.20:7878` |
-| `QM-OPEN-01` | A deep link failed to open | Check that the target app is installed |
 
+### TLS
+
+| Code | Meaning | What to do |
+|---|---|---|
+| `QM-TLS-01` | Self-signed, and can't be pinned | Use `http://` (not for TrueNAS) or a real certificate |
+| `QM-TLS-02` | Self-signed, but can be pinned | Check the SHA-256 fingerprint in the trust prompt and tap **Trust**. See [self-signed certificates](faq.md#connecting-and-networking) |
+| `QM-TLS-03` | A pinned certificate changed | Only trust it again if you expected the change, such as a renewed certificate or rebuilt container |
+
+### Auth and content
+
+| Code | Meaning | What to do |
+|---|---|---|
+| `QM-AUTH-01` | The key or Web UI login was rejected | Copy the key again. Make sure it's the right kind (for example SABnzbd's API Key, not its NZB Key) |
+| `QM-HTTP-01` | An unexpected HTTP response, often a wrong URL or a missing subpath | Add the URL Base, for example `/radarr` |
+| `QM-HTTP-02` | The service or its proxy returned HTTP 429, and the app backed off | Wait a moment, or relax rate limiting on the service or proxy |
+| `QM-DATA-01` | A page came back that wasn't the service's API, usually a login or proxy page | Point the address directly at the service, or add a bypass for the API |
+
+### Edge
+
+| Code | Meaning | What to do |
+|---|---|---|
+| `QM-EDGE-01` | A Cloudflare Access challenge answered instead of the service | Save an Access service token's headers under **Profiles → key icon → Edge access by domain**. See [the tutorial](../tutorials/cloudflare-access.md) |
+| `QM-EDGE-02` | Cloudflare is rate-limiting, and the app backed off | Relax bot protection for that hostname, or connect over Tailscale or your LAN |
+
+### Outside the connection test
+
+| Code | Meaning | What to do |
+|---|---|---|
+| `QM-URL-01` | The address isn't a valid URL | Check the format, for example `http://192.168.1.20:7878` |
+| `QM-OPEN-01` | A deep link into a media server didn't resolve | Check the media server's app is installed. For Plex, try **Settings → Media & Reader → Open in Plex → Web** |

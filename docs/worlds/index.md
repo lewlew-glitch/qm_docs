@@ -4,9 +4,11 @@ Quartermaster divides your stack into three **worlds**. Each world has its own t
 
 | World | What's in it | Tabs |
 |---|---|---|
-| [Entertainment](entertainment.md) | Media servers, downloaders, indexers, requests, stats | Home · Movies · Shows · Discover · Search |
+| [Entertainment](entertainment.md) | Media servers, downloaders, indexers, requests, stats | Home · Movies · Shows · Discover · Search, by default |
 | [Command Centre](command-centre.md) | Containers, hosts, network, DNS, storage, smart home, monitoring | Overview · Activity · Stack · Downloads · Stats |
 | [QM Reader](qm-reader.md) | Books and audiobooks from BookOrbit and Grimmory | |
+
+Each world's bottom bar holds **five tabs**, and you can choose them in **Settings → Appearance & layout → Customise Tabs**. For example, swap Search for **Calendar**.
 
 ## Switching worlds
 
@@ -15,4 +17,4 @@ Quartermaster divides your stack into three **worlds**. Each world has its own t
 
 ## Hiding a world
 
-QM Reader can be turned off in **Settings** if you don't use it.
+QM Reader can be turned off in **Settings → Media & Reader** if you don't use it.

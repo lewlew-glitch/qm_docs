@@ -39,7 +39,7 @@ To add or change the IP ranges that count as "home", tap the **profile icon** (t
 
     Put the service behind a reverse proxy with HTTPS, such as Caddy, Traefik, Nginx Proxy Manager or a Cloudflare Tunnel. Use the public HTTPS URL as the away address.
 
-    A **Cloudflare Tunnel** works like any other address. **Cloudflare Access** blocks the API (`QM-EDGE-01`). To get past it, add an Access service token as `CF-Access-Client-Id` and `CF-Access-Client-Secret` custom headers under **Advanced**. The same applies to Authelia and other login gates: add a bypass rule, or send the proxy's credentials as headers.
+    A **Cloudflare Tunnel** works like any other address. **Cloudflare Access** blocks the API (`QM-EDGE-01`). To get past it, save an Access service token's `CF-Access-Client-Id` and `CF-Access-Client-Secret` headers once per domain in your profile's credentials (profile icon → **Profiles** → **key icon** → **Edge access by domain**). Services on that domain then use them automatically. See [Get past Cloudflare Access](../tutorials/cloudflare-access.md). The same applies to Authelia and other login gates: add a bypass rule, or send the proxy's credentials as headers.
 
 === "VPN"
 
@@ -47,6 +47,24 @@ To add or change the IP ranges that count as "home", tap the **profile icon** (t
 
 !!! warning
     Don't expose services to the internet over plain HTTP. Use HTTPS or a private network such as Tailscale.
+
+## Profile credentials
+
+Instead of typing the same details into every service, save them once on your profile. Tap the **profile icon** at the top right of Home, then **Profiles**, then the **key icon** on your profile.
+
+Every service in the profile inherits these settings, unless the service sets its own, which always wins. Everything here is stored securely on your device.
+
+| Section | What it does |
+|---|---|
+| **Local network addresses** | Your server and NAS addresses, such as `192.168.1.50`. When you add a service, tap one to fill in its local host, then just set the port |
+| **Home Wi-Fi network** | Your Wi-Fi name. Every new service fills it in, so at home Quartermaster stays on the LAN. Tap **Use current network** to fill it in |
+| **Reverse-proxy basic auth** | A username and password, only if your reverse proxy uses Basic auth |
+| **Custom headers** | Extra request headers sent to every service in the profile, for an edge proxy |
+| **Reverse-proxy domains** | Your domain, such as `example.com`. When you add a service, tap it to fill the away address as `{service}.example.com` over HTTPS |
+| **Default domain** | Pick one, and every **new** service starts with its away address filled in as `{service}.<domain>`. Tap it again to clear |
+| **Edge access by domain** | Cloudflare Access (or other proxy) headers saved per domain. Any service whose address is on that domain uses them automatically. See [Get past Cloudflare Access](../tutorials/cloudflare-access.md) |
+
+Tap **Save** when you're done.
 
 ## QM Companion addresses
 

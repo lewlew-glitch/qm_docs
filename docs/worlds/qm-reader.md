@@ -2,7 +2,7 @@
 
 *New in 1.3.* QM Reader is a third world for **books and audiobooks**. It combines titles from **BookOrbit** and **Grimmory** into one library.
 
-Turn it off in **Settings** if you don't need it.
+Turn it off in **Settings → Media & Reader → QM Reader** if you don't need it.
 
 ## Reading
 

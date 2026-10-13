@@ -95,6 +95,15 @@ nav:
       - Add your first service: getting-started/first-service.md
       - Home and away: getting-started/home-and-away.md
       - Free and Pro: getting-started/free-and-pro.md
+  - Tutorials:
+      - tutorials/index.md
+      - Your first setup: tutorials/first-setup.md
+      - Use Quartermaster away from home: tutorials/tailscale.md
+      - Install QM Companion on Unraid: tutorials/companion-unraid.md
+      - Free instant alerts with ntfy: tutorials/ntfy-alerts.md
+      - Get past Cloudflare Access: tutorials/cloudflare-access.md
+      - Now Playing alerts: tutorials/now-playing.md
+      - Share your library with family: tutorials/family-sharing.md
   - Worlds:
       - worlds/index.md
       - Entertainment: worlds/entertainment.md
@@ -122,6 +131,7 @@ nav:
       - Apple TV (beta): platforms/apple-tv.md
   - Reference:
       - Privacy and security: reference/privacy.md
+      - Settings: reference/settings.md
       - Sync and backups: reference/sync-backups.md
       - Troubleshooting: reference/troubleshooting.md
       - Error codes: reference/error-codes.md

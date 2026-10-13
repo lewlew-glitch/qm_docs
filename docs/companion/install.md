@@ -4,7 +4,7 @@
     You need Docker with Compose on the host and `openssl` to generate secrets. Read the [security model](security.md) before you expose the panel or turn on Docker writes.
 
 !!! tip "On Unraid?"
-    Install from Community Applications instead. See [Installing on Unraid](#installing-on-unraid).
+    Install from Community Applications instead. Follow the [Install QM Companion on Unraid](../tutorials/companion-unraid.md) tutorial.
 
 ## 1. Clone the repository
 
@@ -80,7 +80,7 @@ Then turn on **two-factor authentication** and save your **recovery codes**.
 | Variable | Required | Notes |
 |---|:---:|---|
 | `SECRET_KEY` | :material-check: | 64 hex characters. **Keep it the same across upgrades.** If you lose it, stored credentials can't be read. |
-| `QM_PROXY_KEY` | :material-check: | At least 32 characters. Must be different from `SECRET_KEY`. Shared with the QM socket proxy. Not needed if you use [your own proxy](#1-install-the-socket-proxy). |
+| `QM_PROXY_KEY` | :material-check: | At least 32 characters. Must be different from `SECRET_KEY`. Shared with the QM socket proxy. Not needed if you use [your own proxy](#socket-proxy). |
 | `QM_HOST` | :material-check: | The LAN or Tailscale address of your server that the phone can reach. Use a **host only**, with no scheme, port or path. For example `192.168.1.50` or `myserver.tailnet-name.ts.net`, but not `http://192.168.1.50:8787`. |
 | `QM_REMOTE_HOST` | | Optional. A hostname or Tailscale address suggested for away routes. |
 | `SETUP_TOKEN` | | Optional. If it isn't set, a first-run token is logged until an owner exists. |
@@ -92,41 +92,43 @@ Then turn on **two-factor authentication** and save your **recovery codes**.
 
 ## Installing on Unraid
 
-QM Companion is available in Unraid's **Community Applications**. It needs two containers:
+QM Companion is in Unraid's **Community Applications**. For step-by-step instructions, follow the [Install QM Companion on Unraid](../tutorials/companion-unraid.md) tutorial. This section is the reference for every template setting.
 
-1. **A Docker socket proxy.** Companion never touches the Docker socket directly. Use **qm-socket-proxy** *(recommended)*, or your own proxy if you already run one.
-2. **QM Companion** itself.
+It runs as **two containers**: a Docker socket proxy and Companion itself. Companion never touches the Docker socket directly.
 
-### 1. Install the socket proxy
+### Socket proxy
 
-=== "qm-socket-proxy"
+You can use the QM proxy or your own. Either works.
 
-    1. Go to **Apps**, search for **qm-socket-proxy** and click **Install**.
-    2. Set **`QM_PROXY_KEY`**. It must be at least 32 characters and different from `SECRET_KEY`. Generate one with `openssl rand -hex 32`. You'll give Companion the **same** key.
-    3. Click **Apply**.
+=== "qm-socket-proxy (recommended)"
 
-=== "Your own proxy"
+    Install **qm-socket-proxy** from Community Applications. It's locked down to only what Companion needs.
 
-    You can use a Docker socket proxy you already run. It must allow **read** access to containers, events, images, networks, system and info, volumes and ping.
+    - Set `QM_PROXY_KEY` on the proxy: at least 32 characters, different from `SECRET_KEY`.
+    - Set Companion's **Proxy key** to the **same** value.
 
-    To start, stop or update containers, it also needs **POST** access, and **EXEC** for shell access. Match this with Companion's **Docker access limit** (see below).
+=== "Your own Docker socket proxy"
 
-    You **don't need `QM_PROXY_KEY`** with your own proxy.
+    Already run a Docker socket proxy? Point Companion at it instead. You **don't need `QM_PROXY_KEY`**, so leave Companion's **Proxy key** blank.
 
-**Note the proxy's container name**, as shown on Unraid's **Docker** tab. Companion reaches the proxy by that name:
+    Your proxy must allow **read** access to:
 
-```
-tcp://<proxy-container-name>:2375
-```
+    - containers
+    - events
+    - images
+    - networks
+    - system and info
+    - volumes
+    - ping
 
-For example, if the container is called `dockersocket`, the address is `tcp://dockersocket:2375`.
+    To start, stop or update containers, it also needs **POST** access, and **EXEC** for shell access. Set Companion's **Docker access limit** to match: `read`, `manage` (POST) or `shell` (EXEC).
+
+Companion reaches the proxy by its **container name**, so its **Docker host** is `tcp://<proxy-container-name>:2375`, for example `tcp://dockersocket:2375`.
 
 !!! warning "Same network, no published port"
     Put the proxy and Companion on the **same custom Docker network**. Unraid's default `bridge` network doesn't let containers find each other by name. **Don't publish port 2375** on the host.
 
-### 2. Install QM Companion
-
-Go to **Apps**, search for **QM Companion** and click **Install**. Fill in the template:
+### Template settings
 
 #### Required
 
@@ -184,16 +186,6 @@ The exact path depends on how each app was installed, so check its appdata folde
 
 !!! warning "Single files only"
     Map each config **file** on its own. Don't map `/mnt/user/appdata` or a whole app folder.
-
-Set the **Network type** to the same custom network as the proxy, then click **Apply**.
-
-### 3. Claim the owner account
-
-When it's running, open the WebUI from the container's icon on the **Docker** tab, or go to `http://<unraid-ip>:8787`, and claim the owner account.
-
-If it asks for a setup token, click the container's icon and choose **Logs**. The token is printed there until an owner account exists.
-
-Then [pair your phone](pairing.md).
 
 ### Updating
 

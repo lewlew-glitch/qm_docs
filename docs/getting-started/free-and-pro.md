@@ -16,6 +16,7 @@
 | Relay push with the app closed (including Now Playing and Uptime Kuma down and recovery) |  | :material-check: |
 | Daily release digest |  | :material-check: |
 | Discover deck, For You, Watch-a-thon, Forgotten and your taste profile |  | :material-check: |
+| Coming Soon on Home | | :material-check: |
 | Coming Soon on Home and the combined calendar | On a family device | :material-check: |
 | Stuck Download Doctor and Match from "Needs you" |  | :material-check: |
 | Full stats, Weekly Report and Year in Review |  | :material-check: |
@@ -48,9 +49,10 @@ Prices are taken from the App Store listing and may differ in other regions. App
 ## Restore, cancel or refund
 
 - **Restore Pro** on a new or reset device: go to **Settings → Restore purchase**, signed in with the same Apple ID.
+- **Got a code?** Use **Settings → Redeem a code**.
 - **Cancel the subscription:** go to **App Store → your Apple ID → Subscriptions → Quartermaster Pro → Cancel**.
 - **Refunds** go through [reportaproblem.apple.com](https://reportaproblem.apple.com).
 
 ## Continued Support
 
-**Continued Support** ($9.99 / £9.99 a month) is an optional subscription for anyone who wants to help cover the cost of developing Quartermaster. It unlocks the same Pro as every other plan, with no extra features.
+**Continued Support** ($9.99 / £9.99 a month) is an optional subscription for anyone who wants to help cover the cost of developing Quartermaster. It unlocks the same Pro as every other plan, with no extra features. Find it in **Settings → Support the dev**.

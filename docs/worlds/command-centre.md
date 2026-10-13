@@ -36,9 +36,15 @@ Glances · Beszel · Proxmox VE · Unraid · TrueNAS · Synology · UGREEN NAS
 
 Search your stack by name or by function. For example, `dns` or `ups`.
 
+## Calendar
+
+**Customise Command Centre** can add the calendar of upcoming episodes and films to the Overview.
+
 ## Hot bar
 
 The hot bar holds your most-used actions, such as Radarr, Search, Downloads and Add. **Long-press any tile to pin it.** The hot bar can also appear on Entertainment Home (iPhone and iPad).
+
+Turn on **Match the world** in the hot bar editor to give each world its own shortcuts: Entertainment shows your media shortcuts, and Command Centre shows the rest.
 
 ## Now Playing
 
