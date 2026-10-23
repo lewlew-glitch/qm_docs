@@ -11,7 +11,7 @@
 
 /* Light mode: dark header like the app, blue accents */
 [data-md-color-scheme="default"] {
-  --md-primary-fg-color: #ffffff;
+  --md-primary-fg-color: var(--qm-card);
   --md-primary-fg-color--light: #2c2c2d;
   --md-primary-fg-color--dark: var(--qm-black);
   --md-primary-bg-color: #ffffff;
@@ -86,14 +86,33 @@
 .md-typeset .question > summary { background-color: rgba(89,170,225,.12); }
 .md-typeset .question > summary::before { background-color: var(--qm-blue); }
 .md-typeset .question > summary::after { color: var(--qm-blue); }
-.md-header__button.md-logo img { border-radius: 22%; height: 1.6rem; width: 1.6rem; }
-.md-header__inner { height: 3.2rem; }
-.md-header__button.md-logo {
-  padding: .2rem;
-  margin: 0 .2rem;
+
+/* Quartermaster header adjustments for Zensical modern */
+.md-header {
+  background-color: var(--qm-card);
 }
+
+/* Keep the logo consistent without forcing the header's height */
+.md-header__button.md-logo {
+  padding: 0.2rem;
+  margin: 0 0.2rem;
+}
+
 .md-header__button.md-logo img {
-  height: 2rem;
   width: 2rem;
+  height: 2rem;
   border-radius: 22%;
+}
+
+/* Keep header controls and site title legible on the dark header */
+.md-header,
+.md-header a,
+.md-header .md-header__topic {
+  color: #fff;
+}
+
+/* Preserve the blue accent for the active navigation item */
+.md-tabs__item--active .md-tabs__link {
+  color: var(--qm-blue-bright);
+  opacity: 1;
 }
