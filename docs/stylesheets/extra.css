@@ -11,7 +11,7 @@
 
 /* Light mode: dark header like the app, blue accents */
 [data-md-color-scheme="default"] {
-  --md-primary-fg-color: var(--qm-card);
+  --md-primary-fg-color: #ffffff;
   --md-primary-fg-color--light: #2c2c2d;
   --md-primary-fg-color--dark: var(--qm-black);
   --md-primary-bg-color: #ffffff;
