@@ -1,6 +1,6 @@
 # Quartermaster Docs
 
-MkDocs Material site for [Quartermaster](https://www.qmstack.com/), hosted on Vercel at
+Zensical site for [Quartermaster](https://www.qmstack.com/), hosted on Vercel at
 https://docs.qmstack.com/.
 
 ## Run it locally
@@ -8,13 +8,13 @@ https://docs.qmstack.com/.
 ```bash
 python3 -m venv .venv
 .venv/bin/pip install -r requirements.txt
-.venv/bin/mkdocs serve        # live preview at http://127.0.0.1:8000
-.venv/bin/mkdocs build --strict   # static site in ./site, fails on broken links
+.venv/bin/zensical serve        # live preview at http://127.0.0.1:8000
+.venv/bin/zensical build   # static site in ./site
 ```
 
 ## Deploy
 
-Vercel builds it from `vercel.json`: a fresh virtualenv, `mkdocs build --strict`, and the
+Vercel builds it from `vercel.json`: a fresh virtualenv, `zensical build`, and the
 `site/` folder served as static files. Push to `main` and Vercel publishes it; a push to any
 other branch gets a preview URL first.
 
