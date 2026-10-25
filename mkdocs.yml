@@ -17,14 +17,14 @@ theme:
       primary: custom
       accent: custom
       toggle:
-        icon: material/weather-sunny
+        icon: lucide/moon
         name: Switch to light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
       primary: custom
       accent: custom
       toggle:
-        icon: material/weather-night
+        icon: lucide/sun
         name: Switch to dark mode
   font:
     text: Inter
