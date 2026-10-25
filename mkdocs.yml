@@ -83,10 +83,15 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:zensical.extensions.emoji.twemoji
       emoji_generator: !!python/name:zensical.extensions.emoji.to_svg
-
 plugins:
   - search
-
+  - blog:
+      categories_allowed:
+        - Official Release
+        - Hotfix OTA Release
+        - iOS
+        - tvOS
+        - macOS
 nav:
   - Home: index.md
   - Getting started:
@@ -137,5 +142,6 @@ nav:
       - Troubleshooting: reference/troubleshooting.md
       - Error codes: reference/error-codes.md
       - FAQ: reference/faq.md
-      - What's new: reference/changelog.md
       - Get help: reference/support.md
+  - Blog:
+      - blog/index.md
